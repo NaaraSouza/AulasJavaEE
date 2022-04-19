@@ -14,7 +14,7 @@ public class PageBean implements Serializable {
 	
 	private String page;
 	
-	public enum Pages{
+	public enum Pages{	//Criando um ENUM
 		page_a,page_b;
 	}
 
@@ -28,7 +28,7 @@ public class PageBean implements Serializable {
 	public Pages goTo () {
 		
 		if("a".equals(page)) {
-			return Pages.page_a;//Criando um ENUM
+			return Pages.page_a;	//Criando um ENUM
 			
 			
 		}else if("b".equals(page)) {

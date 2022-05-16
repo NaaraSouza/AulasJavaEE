@@ -11,6 +11,40 @@
 </h:head>
 
 <h:body>
+
+<script>
+		function verificarCampos(){
+			var data = document.getElementById("f:data").value;
+			var descricao = document.getElementById("f:descricao").value;
+			var valor = document.getElementById("f:valor").value;
+			if(data ==""){
+				alert("Data não Prechida");
+				return false;
+				
+			}else{
+				if(descricao ==""){
+					alert("Descrição não Prenchido");
+					return false;
+				}else{
+					
+					if(valor ==""){
+					alert("Valor não prencida ");
+					return false;}
+					
+					
+				}
+				}
+			
+			
+			return true;
+		}
+		}
+		
+</script>
+		
+
+
+	<h:outputStylesheet library="css" name="styles.css" />
 	<h:form>
 
 		<h:panelGrid coluns="5">
@@ -39,7 +73,7 @@
 	</h:form>
 
 
-	<h:outputStylesheet library="css" name="styles.css" />
+
 	<h:form>
 		<h:panelGroup rendered="#{tabela.despesas.size()>0}">
 			<table class="tabela">

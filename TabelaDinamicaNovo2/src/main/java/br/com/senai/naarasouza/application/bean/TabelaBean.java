@@ -17,9 +17,6 @@ import br.com.senai.naarasouza.application.model.Despesas;
 public class TabelaBean implements Serializable {
 
 	private List<Despesas> despesas= new ArrayList<>();
-
-	
-
 	
 	public String inserir() {
 		Despesas d = new Despesas();

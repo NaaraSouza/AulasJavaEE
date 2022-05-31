@@ -8,7 +8,7 @@ import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-import br.com.senai.naarasouza.application.model.Cadastro;
+import br.com.senai.naarasouza.jpa.model.Despesa;
 
 
 @SuppressWarnings("serial") 
@@ -16,7 +16,7 @@ import br.com.senai.naarasouza.application.model.Cadastro;
 @SessionScoped 
 public class PageBean implements Serializable{
 	
-	private List<Cadastro> despesas = new ArrayList<>();
+	private List<Despesa> despesas = new ArrayList<>();
 	
 	String date;
 	String desc;
@@ -50,11 +50,9 @@ public class PageBean implements Serializable{
 
 	
 	
-	
-	
 	public String inserir(String data,String desc,Double valor) {
 		
-		Cadastro d = new Cadastro(data,desc,valor); 
+		Despesa d = new Despesa (data,desc,valor); 
 		d.setEdit(true);
 		back =true;
 		despesas.add(d);
@@ -65,26 +63,26 @@ public class PageBean implements Serializable{
 		
 	}
 	
-	public String excluir(Cadastro despesa) {
+	public String excluir(Despesa despesa) {
 		
 		despesas.remove(despesa);
 		
 		return null;
 	}
 	
-	public String editar(Cadastro despesa) {
+	public String editar(Despesa despesa) {
 		despesa.setEdit(true); 
 		
 		return null;
 	}
 	
-	public String gravar (Cadastro despesa) {
+	public String gravar (Despesa despesa) {
 		despesa.setEdit(false);
 		
 		return null;
 	}
 	
-	public List<Cadastro> getDespesas() {
+	public List<Despesa> getDespesas() {
 		return despesas;
 	}
 

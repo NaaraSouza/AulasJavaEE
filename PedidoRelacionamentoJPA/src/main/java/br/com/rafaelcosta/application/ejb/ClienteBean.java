@@ -12,7 +12,7 @@ import br.com.rafaelcosta.application.model.Cliente;
 @Stateless //Faz a requisição do banco de dados e retorna pra gente.
 public class ClienteBean {
 
-	@PersistenceContext
+	@PersistenceContext // Ele guarda as entidades que estão sendo gerenciadas pelo EntityManager
 	private EntityManager em;
 	
 	public List<Cliente> listar() {

@@ -13,22 +13,25 @@
 <h:body>
 
 <script>
+	
+	<!--fazendo validação-->
+	
 		function verificarCampos(){
 			var data = document.getElementById("f:data").value;
 			var descricao = document.getElementById("f:descricao").value;
 			var valor = document.getElementById("f:valor").value;
 			if(data ==""){
-				alert("Data n�o Prechida");
+				alert("Data não Prechida");
 				return false;
 				
 			}else{
 				if(descricao ==""){
-					alert("Descri��o n�o Prenchido");
+					alert("Descrição não Prenchido");
 					return false;
 				}else{
 					
 					if(valor ==""){
-					alert("Valor n�o prencida ");
+					alert("Valor não prencida ");
 					return false;}
 					
 					
@@ -55,13 +58,13 @@
 					Data:
 						<h:inputText value="#{despesas.data}" />.
 
-					Descri��o:
+					Descrição:
 						<h:inputText value="#{despesas.descricao}" />
 
 					Valor:
 						<h:inputText value="#{despesas.valor}" />
 
-					Opera��o:
+					Operação:
 
 					<h:inputText value="#{despesas.edit}" />  
 
@@ -84,19 +87,23 @@
 				<tr>
 					<th class="cabecalho">Id</th>
 					<th class="cabecalho">Data</th>
-					<th class="cabecalho">Descri��o</th>
+					<th class="cabecalho">Descrição</th>
 					<th class="cabecalho">Valor</th>
-					<th class="cabecalho">Opera��o</th>
+					<th class="cabecalho">Operação</th>
 				</tr>
 
+				<!--UI Repeat é usado quando queremos percorrer todos os objetos de uma coleção e manipulá-los ou exibí-los um de cada vez-->
 				<ui:repeat var="#{tabela.despesas}" value="d" varStatus="st">
-					<!-- � despesas por conta da TabelaBean onde fica o public List<Despesas> getDespesas (){return despesas;} -->
+					<!-- É despesas por conta da TabelaBean onde fica o public List<Despesas> getDespesas (){return despesas;} -->
 
 					<tr>
 						<td class="colNumero">#{st.index+1}</td>
 
 						<td class="colData"><h:outputText value="#{d.data}"
-								rendered="#{!d.edit}" /> <h:inputText value="#{d.data}"
+						
+						<!--O rendered é responsável por tornar o componente visível ou não para o usuário, ou seja, sempre que este atributo for true o componente poderá gerar código XHTML para ser exibido na página-->
+								
+							rendered="#{!d.edit}" /> <h:inputText value="#{d.data}"
 								rendered="#{d.edit}" /></td>
 
 
@@ -107,6 +114,9 @@
 
 						<td class="colValor"><h:outputText value="#{d.valor}"
 								rendered="#{!d.edit}">
+							
+							<!--Aqui está convertendo o número-->
+							
 								<f:convertNumber type="currency" locale="pt_BR" />
 							</h:outputText> <h:inputText value="#{d.valor}" rendered="#{d.edit}" /></td>
 
@@ -121,7 +131,7 @@
 		</h:panelGroup>
 
 		<h:panelGroup rendered="#{tabela.despesas.size()>0}">
-			<h:outputText value="N�o existe despesas cadastradas"
+			<h:outputText value="Não existe despesas cadastradas"
 				styleClass="message" />
 		</h:panelGroup>
 

@@ -65,6 +65,9 @@ public class PageBean implements Serializable{
 		
 	}
 	
+	
+	/*funções que terão que fazer:*/
+	
 	public String excluir(Cadastro despesa) {
 		
 		despesas.remove(despesa);

@@ -16,11 +16,11 @@
 		<h:panelGrid columns="4">
 			ID da tarefa:
 			<h:inputText id="searchId" value="#{form.tarefaId}" binding="#{form.searchInputText}"
-				required="true" requiredMessage="Digite um ID" converterMessage="O ID não é válido" validatorMessage="O ID não é válido">
-				<f:validateLongRange minimum="1" maximum="1000" />
+				required="true" requiredMessage="Digite um ID" converterMessage="O ID nÃ£o Ã© vÃ¡lido" validatorMessage="O ID nÃ£o Ã© vÃ¡lido">
+				<f:validateLongRange minimum="1" maximum="1000" /> 
 			</h:inputText>
 			<h:commandButton value="Pesquisar">
-				<f:ajax listener="#{form.pesquisar}" execute=":searchForm:searchId" render=":editForm @form" />
+				<f:ajax listener="#{form.pesquisar}" execute=":searchForm:searchId" render=":editForm @form" /> <!- o Ajax Ã© uma forma eficiente de uma aplicaÃ§Ã£o web tratar as interaÃ§Ãµes do usuÃ¡rio com uma pÃ¡gina web-->
 			</h:commandButton>
 			<h:message for="searchId" style="color: red;" />
 		</h:panelGrid>
@@ -30,8 +30,8 @@
 	
 	<h:form id="editForm">
 		<h:panelGrid columns="3">
-			Descrição:
-			<h:inputText id="descricao" value="#{form.tarefa.descricao}" required="true" requiredMessage="Digite uma descrição" />
+			DescriÃ§Ã£o:
+			<h:inputText id="descricao" value="#{form.tarefa.descricao}" required="true" requiredMessage="Digite uma descriÃ§Ã£o" />
 			<h:message for="descricao" style="color: red;" />
 			
 			Prioridade:
@@ -42,10 +42,10 @@
 			</h:selectOneMenu>
 			<h:message for="prioridade" style="color: red;" />
 			
-			Concluída:
+			ConcluÃ­da:
 			<h:selectBooleanCheckbox value="#{form.tarefa.concluida}" />
 		</h:panelGrid>
-		<h:inputHidden value="#{form.tarefa.id}" />
+		<h:inputHidden value="#{form.tarefa.id}" /> <!--Renderiza um elemento HTML "input" do tipo "hidden"-->
 		<br />
 		<h:commandButton value="Gravar">
 			<f:ajax listener="#{form.gravar}" execute="@form" render="@form" />

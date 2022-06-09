@@ -18,13 +18,14 @@ import br.com.senai.naarasouza.jpa.model.Despesa;
 @RequestScoped // o CICLO DE VIDA DELE.
 public class FormBean implements Serializable {
 	
-	@EJB //CRIAR ALUNOBEAM E NO TAREFA BEAN DESPESAS BEAN
+	@EJB //EJB é um componente server-side que encapsula o código que preenche os objetivos da aplicação.
 	private FormBean despesaBean;
 
-	@Inject
-	private FacesContext context;
+	@Inject //  @Inject nos permite definir um ponto de injeção que é injetado durante a instanciação do bean
 	
-	private UIComponent searchInputText;
+	private FacesContext context; //O FacesContext contém todas as informações do estado e a renderização de uma requisição Java Server Faces.
+	
+	private UIComponent searchInputText; //é a classe base para todos os componentes da interface do usuário no JavaServer Faces.
 	
 	private Integer tarefaId;
 	
@@ -38,7 +39,7 @@ public class FormBean implements Serializable {
 		}		
 	}
 	
-	public void pesquisar(AjaxBehaviorEvent event) {
+	public void pesquisar(AjaxBehaviorEvent event) { // AjaxBehaviorEvent representa o comportamento do componente específico para Ajax
 		despesa = despesaBean.carregar(tarefaId);
 		
 		if(despesa == null) {

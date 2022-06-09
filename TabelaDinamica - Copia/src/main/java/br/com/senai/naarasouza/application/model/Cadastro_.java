@@ -11,8 +11,8 @@ import javax.persistence.metamodel.StaticMetamodel;
 
 
 public class Cadastro_ {
-	public static volatile SingularAttribute<Cadastro, Integer> id;
-	public static volatile SingularAttribute<Cadastro, String> descricao;
+	public static volatile SingularAttribute<Cadastro, Integer> id; //volatile é usado para indicar que o valor de uma variável será modificado por diferentes threads
+	public static volatile SingularAttribute<Cadastro, String> descricao; //As instâncias do tipo SingularAttributerepresentam propriedades ou campos persistentes de valor único.
 	public static volatile SingularAttribute<Cadastro, Integer> prioridade;
 	public static volatile SingularAttribute<Cadastro, Boolean> concluida;
 }

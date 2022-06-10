@@ -6,7 +6,7 @@ public class Interesse {
 	private String area;
 
 	public Interesse(Integer id, String area) {
-		super();
+		super(); // serve para chamar o construtor da superclasse
 		this.id = id;
 		this.area = area;
 	}

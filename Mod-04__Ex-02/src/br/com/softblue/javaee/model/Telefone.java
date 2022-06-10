@@ -2,7 +2,7 @@ package br.com.softblue.javaee.model;
 
 public class Telefone {
 
-	public enum Tipo {
+	public enum Tipo { //Enuns= consistem em um conjunto fixo de constantes 
 		FIXO, CELULAR
 	}
 

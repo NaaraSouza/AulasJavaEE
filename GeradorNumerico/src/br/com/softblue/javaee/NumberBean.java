@@ -12,7 +12,7 @@ import javax.inject.Named;
 @RequestScoped
 public class NumberBean implements Serializable {
 	
-	private static Random random = new Random();
+	private static Random random = new Random(); //Random= gera números inteiros aleatórios.
 
 	private Integer qtde;
 	private Integer min;

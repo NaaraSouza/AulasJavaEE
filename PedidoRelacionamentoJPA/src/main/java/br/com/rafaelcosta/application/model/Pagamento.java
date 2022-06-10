@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-@Entity
+@Entity //para informar que a classe é uma entidade do banco de dados; 
 public class Pagamento implements Serializable {
 	public enum TipoPagamento {
 		CARTAO_CREDITO,
@@ -21,7 +21,7 @@ public class Pagamento implements Serializable {
 	@GeneratedValue
 	private Integer id;
 	
-	@Enumerated(EnumType.STRING)
+	@Enumerated(EnumType.STRING)//é usado para podermos instruir um provedor JPA a converter uma enumeração em seu valor ordinal ou String
 	@Column(name = "tipo_pagto", length = 20, nullable = false)
 	private TipoPagamento tipoPagto;
 	

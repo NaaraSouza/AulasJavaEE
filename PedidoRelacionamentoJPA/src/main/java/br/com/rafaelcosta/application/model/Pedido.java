@@ -28,20 +28,20 @@ public class Pedido implements Serializable {
 	@Column(name = "valor_total")
 	private Double valorTotal;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE) //Esta anotação deve ser especificada para campos persistentes ou propriedades do tipo java.util.Datee java.util.Calendar.A Temporalanotação pode ser usada em conjunto com a Basicanotação, a Id anotação ou a ElementCollectionanotação (quando o valor da coleção de elementos for desse tipo temporal.
 	@Column(nullable = false)
 	private Date data;
 
 	@OneToOne
-	@JoinColumn(name = "pagamento_id")// 
+	@JoinColumn(name = "pagamento_id")//indica que a classe na qual você está utilizando-a é a dona ou o lado forte do relacionamento.
 	private Pagamento pagamento;
 	
-	@ManyToOne
+	@ManyToOne //"Muitos para um"
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "pedido_produto", 
+	@JoinTable(name = "pedido_produto", //Usado no mapeamento de associações. É especificado no lado proprietário de uma associação.
 		joinColumns = @JoinColumn(name = "pedido_id"),
 		inverseJoinColumns = @JoinColumn(name = "produto_id"))
 	private List<Produto> produtos = new ArrayList<Produto>();

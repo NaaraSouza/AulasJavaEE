@@ -13,16 +13,17 @@ import javax.persistence.OneToMany;
 public class Cliente implements Serializable {
 	
 	@Id // PARA TRAZER UM ID AUTOMÁTICO
-	@GeneratedValue
+	@GeneratedValue // serve para falar que o campo mapeado será gerado automaticamente pelo banco de dados
 	private Integer id;
 	
+	//Column= é utilizada para especificar os detalhes da coluna que um campo ou propriedade será mapeado
 	@Column(length = 100, nullable = false) //COMENTAR AQUI - NULLABLE DIZ SE O CAMPO PODE OU NÃO SER NULO.
 	private String nome;
 	
 	@Column(length = 50, nullable = false)
 	private String email;
 
-	@OneToMany(mappedBy = "cliente") //OneToMany diz que o atributo é um relacionamento; MappedBy-"Quem vai mapear"
+	@OneToMany(mappedBy = "cliente") //OneToMany("Um para Muitos") diz que o atributo é um relacionamento; MappedBy-"Quem vai mapear"
 	private List<Pedido> pedidos;
 
 	public Integer getId() {
@@ -57,7 +58,7 @@ public class Cliente implements Serializable {
 		this.pedidos = pedidos;
 	}
 
-	@Override
+	@Override //é uma “anotação” que pode ser acrescentada a um método que foi sobreposto
 	public String toString() {
 		return "Cliente [id=" + id + ", nome=" + nome + ", email=" + email + "]";
 	}

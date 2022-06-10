@@ -14,11 +14,11 @@ import br.com.rafaelcosta.application.model.Pedido;
 import br.com.rafaelcosta.application.model.Produto;
 
 
-@Stateless
+@Stateless  //Utilizado quando você tem uma classe que representa apenas um serviço, mas sem precisar guardar informações.
 public class PedidoBean {
 
-	@PersistenceContext
-	private EntityManager em;
+	@PersistenceContext //é um local onde ficam armazenados os objetos (entidades) que estão sendo manipulados pelo EntityManager corrente
+	private EntityManager em; //EntityManager=Provê APIs para criar consultas, buscando objetos, sincronizando objetos, e inserindo objetos no banco de dados
 	
 	public List<Pedido> listar() {
 		return em.createQuery("SELECT p FROM Pedido p", Pedido.class).getResultList();
